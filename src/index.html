@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8">
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <meta name="apple-mobile-web-app-capable" content="yes"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+      <meta name="format-detection" content="telephone=no"/>
+      <meta name="format-detection" content="email=no"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+     <title>Dva Demo</title>
+      <link rel="stylesheet" href="index.css" />
+      <link rel="stylesheet"  href="https://unpkg.com/antd-mobile@0.9.13/dist/antd-mobile.css">
+
+<!-- <link rel="stylesheet" href="https://as.alipayobjects.com/g/h5-lib/antui/9.9.0-2/rem/antui.css"/> -->
+
+<!-- 组件 -->
+<!-- <link rel="stylesheet" href="https://as.alipayobjects.com/g/h5-lib/antui/9.9.0-2/rem/??widget/message.css,widget/notice.css,widget/page-result.css"/> -->
+
+<!-- js -->
+
+  <script>
+  (function(doc,win){
+     var docEl = doc.documentElement,
+         resizeEvt = 'orientationchange' in window ? 'orientationchange' :'resize',
+         recalc = function(){
+            var clientWidth = docEl.clientWidth;
+            if(!clientWidth) return;
+            docEl.style.fontSize = 50 *(clientWidth / 320) +'px';
+            console.log(docEl.style.fontSize);
+         };
+         //Abort if browser does not  support addEventListener
+         if(!doc.addEventListener) return;
+         win.addEventListener(resizeEvt,recalc,false);
+         doc.addEventListener('DOMContentLoaded',recalc,false);
+})(document,window);
+</script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="index.js"></script>
+<!-- <script src="https://as.alipayobjects.com/g/h5-lib/antui/9.9.0-2/rem/antui.js"></script> -->
+</body>
+</html>
