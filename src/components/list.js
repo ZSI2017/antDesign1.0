@@ -5,7 +5,6 @@ import {Link,History} from "dva/router";
 const Item = List.Item;
 const Brief = Item.Brief;
 
-
 const PlaceHolder = (props) =>(
      <div style={{
        background:'#000',
@@ -17,31 +16,59 @@ const PlaceHolder = (props) =>(
        borderRadius:'.2rem'
      }} {...props}>
      </div>
-
 )
 
-const MyBadge = (props) =>(
-  <Badge text="自动缴费" style={{
-   padding: '0 ',
-   backgroundColor: '#fff',
-   borderRadius: 1,
-   color: '#f19736',
-   border: '.02rem  solid #f19736',
- }}
- />
-)
+import MyBadge from "./MyBadge.js"
+// const MyBadge = (props) =>{
+//    console.log("myBadge>>>>>>>>>>>>>>>>>");
+//    console.log(props);
+//    return(
+//        <div>
+//        adfasdf
+//        {
+//         //  props.data.map(function(item){
+//         //      return (
+//         //        <Badge key={item.id} text={item} style={{
+//         //         padding: '0 ',
+//         //         backgroundColor: '#fff',
+//         //         borderRadius: 1,
+//         //         color: '#f19736',
+//         //         border: '.02rem  solid #f19736',
+//         //       }}
+//         //       />
+//         //      )
+//         //  })
+//        }
+//        </div>
+//    )
+// }
 const list =(props) => {
-      console.log(history.replaceState(null,'/send'));
+      mixins:[ History ];
+      console.log(history)
           return  (
-              <div>
-              <List>
-      <Item
-        thumb={<PlaceHolder />}
-        arrow="horizontal"
-        onClick={() => {history.replaceState } }
-      >菜鸟驿站 <Brief style={{fontSize:'.16rem',marginTop:'0'}}>官方合作门店，安全有保障</Brief><Brief> <MyBadge /> <MyBadge /> </Brief></Item>
-    </List>
-              </div>
+            <div>
+                { props.data.map(function(item){
+                        return  ( <List>
+                                    <Item
+                                      key= {item.id}
+                                      thumb={<PlaceHolder />}
+                                      arrow="horizontal"
+                                      onClick={() => {history.replaceState } }
+                                    >{item.title}
+                                      <Brief style={{fontSize:'.16rem',marginTop:'0'}}>{item.subtitle}</Brief>
+                                   <Brief><MyBadge{...item.little}/></Brief>
+                                    </Item>
+                                   </List>)
+                    })
+              }
+        </div>
+    // <List>
+    //     <Item
+    //       thumb={<PlaceHolder />}
+    //       arrow="horizontal"
+    //       onClick={() => {history.replaceState } }
+    //     >菜鸟驿站 <Brief style={{fontSize:'.16rem',marginTop:'0'}}>官方合作门店，安全有保障</Brief><Brief> <MyBadge /> <MyBadge /> </Brief></Item>
+    // </List>
           )
       }
 
