@@ -28,22 +28,23 @@ import My from "../components/own";
 //     }
 
 
-const around = ({localtion,dispatch,myaround}) => {
+const around = (props) => {
 
+      var {location,dispatch,myaround,history,params}=props
       console.log("data123456");
-      console.log(myaround);
+      console.log(location.query.title);
       const {data1} =myaround;
 
      const myProps = {
-            datasource:data1
+            datasource:data1,
+            title:location.query.title
      }
 
         return(
             <div>
                 <NavBar> 附近快递网点 </NavBar>
-                <Search />
+                <Search  />
                 <My {...myProps} />
-
             </div>
         )
 }

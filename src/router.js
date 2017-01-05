@@ -20,7 +20,9 @@ import Around from "./routes/around";
 
 import MyInput from "./routes/myinput";
 
-import MobileDemo from "./routes/myMobile"
+import MobileDemo from "./routes/myMobile";
+
+import InfAddress from "./routes/infAddress";
 
 
 export default function({ history }) {
@@ -36,6 +38,7 @@ export default function({ history }) {
             <Route path = "/around" component= {Around} />
             <Route  path="/inputIn" component={MyInput}/>
             <Route path="/mobileDemo" component={MobileDemo} />
+            <Route path="/inf" component = {InfAddress} />
     </Router>
   );
 };

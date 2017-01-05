@@ -1,6 +1,6 @@
 import React, {Component,PropTypes} from "react";
 import {List,Icon,Badge} from "antd-mobile";
-import {Link,History,routerRedux} from "dva/router";
+import {Router,Route,IndexRoute,Link,History,routerRedux} from "dva/router";
 
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -44,7 +44,17 @@ import MyBadge from "./MyBadge.js"
 // }
 const list = React.createClass({
      mixins:[ History ],
+
+     getInitialState(){
+           const contextTypes = {
+                router:PropTypes.routerShape
+           }
+           return{
+                history:this,
+           };
+     },
       render(){
+           var _this = this
           return  (
             <div>
                 { this.props.dataSource.map(function(item){
@@ -55,9 +65,11 @@ const list = React.createClass({
                                       arrow="horizontal"
                                       onClick={() => {
 
-                                      console.log(history);
-                                    //  history.replaceState(null,'/around');
-                                       history.go(2);
+                                      console.log(_this);
+                                       _this.history.pushState({name:"liqi"},'/around',item)
+                                   //   history.replaceState(null,'/around')
+                                     //history.replaceState(null,'/around');
+                                    //   history.go();
                                       } }
                                     >{item.title}
                                       <Brief style={{fontSize:'.24rem',marginTop:'0'}}>{item.subtitle}</Brief>

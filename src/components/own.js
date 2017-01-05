@@ -26,28 +26,36 @@ import React,{Component,PropTypes} from "react";
 //              )
 //        }
 // })
-const my =({datasource})=>{
+const my = React.createClass({
 
 
 
 
                //   const items = this.props.datasource;
-               const items = datasource;
+              // const items = datasource;
               //  let  items =[];
               //  if(datasource){
                //
               //  }else{
               //     items=datasource;
               //  }
+         getInitialState(){
+              return{}
+         },
+
+        render(){
+             console.log("12345");
+             console.log(this.props);
+             var _this =this;
              return(
              <div>
                    {
-                   items.map(function(item) {
-                    return  <div key = {item.id} style={{
+                  this.props.datasource.map(function(item) {
+                    return  <div keys = {item.id} style={{
                           padding:".1rem .4rem",
                           borderBottom:'.02rem solid #fff'
                        }}>
-                            <p style={{fontSize:'.40rem'}}> {item.title}</p>
+                            <p style={{fontSize:'.40rem'}}> {_this.props.title}{item.title}</p>
                             <p style={{color:"grey"}}> {item.no1} </p>
                             <p style={{color:"grey"}}> {item.no2}</p>
                             <p style={{color:"grey"}}>{item.no3}</p>
@@ -57,8 +65,9 @@ const my =({datasource})=>{
             }
 
                </div>
-             )
-       }
+             )}
+
+     })
 
 
 
