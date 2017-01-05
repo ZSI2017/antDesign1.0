@@ -14,7 +14,7 @@ import {NavBar,Icon} from "antd-mobile";
 // }
 
  const navbar = (props)=> {
-   console.log(props)
+  
         return (
             <div>
                  <div style ={{height:"0"}} />

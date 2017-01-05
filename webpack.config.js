@@ -1,12 +1,20 @@
+
 const webpack = require('atool-build/lib/webpack');
+const pxtorem = require('postcss-pxtorem');
 
 module.exports = function(webpackConfig, env) {
   webpackConfig.babel.plugins.push('transform-runtime');
 
-  // webpackConfig.babel.plugins.push(['import',{
-  //      style:"css",
-  //      libraryName:'antd-mobile',
-  // }])
+  webpackConfig.babel.plugins.push(['import',{
+       style:true,
+       libraryName:'antd-mobile',
+  }])
+
+  webpackConfig.postcss.push(pxtorem({
+       rootValue:100,
+       propWhiteList:[],
+  }));
+
   // Support hmr
   if (env === 'development') {
     webpackConfig.devtool = '#eval';

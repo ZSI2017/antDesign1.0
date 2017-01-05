@@ -31,6 +31,34 @@ module.exports = {
                    success:true,
                    data:data
               })
+     },
+  'GET /api/list' (req,res){
+           const data =
+           [{
+               title:"菜鸟驿站",
+               subtitle:"官方合作门店，安全有保障",
+               little:{data:[
+                   "安全保障","便捷代寄"
+               ]}
+           },
+           {
+               title:"附近快递网点",
+               subtitle:"找就近网点快速提供服务",
+               little:{data:[
+                   "快速上门","安全保障"
+               ]}
+           },  {
+                 title:"菜鸟驿站",
+                 subtitle:"官方合作门店，安全有保障",
+                 little:{data:[
+                     "安全保障","便捷代寄"
+                 ]}
+             }
+         ];
+         res.json({
+               success:true,
+               data:data
+         })
+  }
 
-     }
 }

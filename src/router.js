@@ -3,7 +3,6 @@ import { Router, Route, IndexRoute, Link } from 'dva/router';
 import IndexPage from './routes/IndexPage';
 
 
-
 // 同城直送
 import Send from "./routes/send";
 
@@ -21,6 +20,8 @@ import Around from "./routes/around";
 
 import MyInput from "./routes/myinput";
 
+import MobileDemo from "./routes/myMobile"
+
 
 export default function({ history }) {
   return (
@@ -34,6 +35,7 @@ export default function({ history }) {
             <Route path="/list" component={List} />
             <Route path = "/around" component= {Around} />
             <Route  path="/inputIn" component={MyInput}/>
+            <Route path="/mobileDemo" component={MobileDemo} />
     </Router>
   );
 };

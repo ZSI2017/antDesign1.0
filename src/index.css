@@ -4,3 +4,9 @@
     height: 100%;
   }
 }
+
+/*focus{outline:0}
+html{font-size:100px}
+@media only screen and (min-width:414px) and (max-width:414px){html{font-size:110.4px!important}}
+@media only screen and (min-width:480px) and (max-width:480px){html{font-size:128px!important}}
+@media only screen and (min-width:360px) and (max-width:360px){html{font-size:100px!important}}body*/

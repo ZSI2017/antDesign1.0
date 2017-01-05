@@ -22,7 +22,6 @@ export default{
 
           },
       },
-
       effects:{
           *getAll({payload},{select,call,put}){
               const {data} = yield call(query,payload);

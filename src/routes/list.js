@@ -2,7 +2,11 @@ import React,{PropTypes,Component} from "react";
 
 
 import List from "../components/list";
-import NavBar from "../components/NavBar"
+import NavBar from "../components/NavBar";
+
+import {connect}  from "dva";
+
+
 
 
 const Myprops = {  data:
@@ -29,11 +33,17 @@ const Myprops = {  data:
 ]}
 
 
-const list = (props)=>{
+const list = ({localtion,dispatch,mylist})=>{
+           //console.log("dadsdf");
+          // console.log(mylist);
+            const myProps = {
+                   dataSource:mylist.data2
+            }
+
     return (
         <div>
           <NavBar> 附近快递资源 </NavBar>
-           <List {...Myprops}/>
+           <List {...myProps}/>
 
         </div>
     )
@@ -43,4 +53,8 @@ list.PropTypes = {
 
 }
 
-export default list;
+function mapStateToPrps({mylist}){
+      return {mylist};
+}
+
+export default connect(mapStateToPrps)(list);

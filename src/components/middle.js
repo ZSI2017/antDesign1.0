@@ -11,8 +11,8 @@ const middle = (props) =>{
                    justifyContent:'space-around',
                    flex:'1'
                 }}>
-                    <p style={{fontSize:'16px',fontWeight:'bold',margin:'0'}}>可口可乐</p>
-                    <p style={{fontSize:'10px',color:'grey',margin:'0'}}>可口可乐</p>
+                    <p style={{fontSize:'.32rem',fontWeight:'bold',margin:'0'}}>可口可乐</p>
+                    <p style={{fontSize:'.2rem',color:'grey',margin:'0'}}>可口可乐</p>
                     <div>
 
                     </div>

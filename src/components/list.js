@@ -1,6 +1,6 @@
 import React, {Component,PropTypes} from "react";
 import {List,Icon,Badge} from "antd-mobile";
-import {Link,History} from "dva/router";
+import {Link,History,routerRedux} from "dva/router";
 
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -42,21 +42,26 @@ import MyBadge from "./MyBadge.js"
 //        </div>
 //    )
 // }
-const list =(props) => {
-      mixins:[ History ];
-      console.log(history)
+const list = React.createClass({
+     mixins:[ History ],
+      render(){
           return  (
             <div>
-                { props.data.map(function(item){
+                { this.props.dataSource.map(function(item){
                         return  ( <List>
                                     <Item
                                       key= {item.id}
                                       thumb={<PlaceHolder />}
                                       arrow="horizontal"
-                                      onClick={() => {history.replaceState } }
+                                      onClick={() => {
+
+                                      console.log(history);
+                                    //  history.replaceState(null,'/around');
+                                       history.go(2);
+                                      } }
                                     >{item.title}
-                                      <Brief style={{fontSize:'.16rem',marginTop:'0'}}>{item.subtitle}</Brief>
-                                   <Brief><MyBadge{...item.little}/></Brief>
+                                      <Brief style={{fontSize:'.24rem',marginTop:'0'}}>{item.subtitle}</Brief>
+                                   <Brief><MyBadge {...item.little}/></Brief>
                                     </Item>
                                    </List>)
                     })
@@ -69,8 +74,6 @@ const list =(props) => {
     //       onClick={() => {history.replaceState } }
     //     >菜鸟驿站 <Brief style={{fontSize:'.16rem',marginTop:'0'}}>官方合作门店，安全有保障</Brief><Brief> <MyBadge /> <MyBadge /> </Brief></Item>
     // </List>
-          )
-      }
-
-
+  )}
+      })
 export default list;
