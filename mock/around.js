@@ -34,9 +34,9 @@ module.exports = {
      },
   'GET /api/list' (req,res){
            const data =
-           [{
+          [{
                title:"菜鸟驿站",
-               subtitle:"官方合作门店，安全有保障",
+                          subtitle:"官方合作门店，安全有保障",
                little:{data:[
                    "安全保障","便捷代寄"
                ]}
