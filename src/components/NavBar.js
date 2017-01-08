@@ -1,5 +1,6 @@
 import  React,{Component,PropTypes} from "react";
 import {NavBar,Icon} from "antd-mobile";
+import {Link,History,routerRedux} from "dva/router";
 
 
 // export default  NavBar = () =>{
@@ -13,16 +14,23 @@ import {NavBar,Icon} from "antd-mobile";
 //           )
 // }
 
- const navbar = (props)=> {
-  
+ const navbar = React.createClass({
+     mixins:[History],
+
+     getInitialState(){
+          return{
+
+          }
+     },
+      render(){
         return (
             <div>
                  <div style ={{height:"0"}} />
                  <NavBar style={{fontSize:'20px',fontWeight:'bold'}}  leftContent="返回" mode = "light" onLeftClick={() =>this.history.goBack()}
-                    >{props.children}</NavBar>
+                    >{this.props.children}</NavBar>
             </div>
-          )
-        }
+          )}
+        })
       navbar.propTypes = {
 
         };
